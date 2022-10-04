@@ -1,0 +1,1 @@
+This module creates an EC2 instance.
