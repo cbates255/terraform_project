@@ -8,15 +8,17 @@ variable "region" {
   default = "us-east-1"
 }
 
-variable "number_of_public_subnets" {
-  default = 2
-}
-
-variable "number_of_private_subnets" {
-  default = 2
-}
-
 variable "AZs" {
   type = list(string)
   description = "The AZs housing the subnets"
+}
+
+variable "pubsubCIDRblocks" {
+  type = list(string)
+  description = "Cidr blocks for the public subnets"
+}
+
+variable "privsubCIDRblocks" {
+  type = list(string)
+  description = "Cidr blocks for the private subnets"
 }
