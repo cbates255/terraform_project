@@ -1,23 +1,19 @@
-#Pull the available AZs
-data "aws_availability_zones" "azs" {
-  state = "available"
-}
 
-#Create the vpc
+#VPC resource
 resource "aws_vpc" "projectVPC" {
   cidr_block = var.vpc_cidr
 }
 
-#Create 2 public subnets split across AZs
+#Public subnets resource
 resource "aws_subnet" "pubsub" {
   vpc_id = aws_vpc.projectVPC.id
-  count = length(var.AZs)
-  availability_zone = 
+  count = 2
+  availability_zone = data.aws_availability_zones.availableAZS.names[count.index]
   map_public_ip_on_launch = true
-  cidr_block = 
+  cidr_block = var
 }
 
-#Create 2 private subnets split across AZs
+#Private subnets resource
 resource "aws_subnet" "privsub" {
   vpc_id = aws_vpc.projectVPC.id
   count = length(var.AZs)
