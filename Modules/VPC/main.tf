@@ -10,7 +10,7 @@ resource "aws_subnet" "pubsub" {
   count = length(var.azs)
   availability_zone = var.azs[count.index]
   map_public_ip_on_launch = true
-  cidr_block = var.pubsubCIDRblocks
+  cidr_block = var.pubsubCIDRblocks[count.index]
 }
 
 #Private subnets resource
@@ -19,5 +19,8 @@ resource "aws_subnet" "privsub" {
   count = length(var.azs)
   availability_zone = var.azs[count.index]
   map_public_ip_on_launch = false
-  cidr_block = var.privsubCIDRblocks
+  cidr_block = var.privsubCIDRblocks[count.index]
+  tags = {
+    "Private" = "True"
+  }
 }

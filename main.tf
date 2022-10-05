@@ -1,3 +1,17 @@
+data "aws_subnet_ids" "ids" {
+  vpc_id = module.VPC.vpcid
+  tags = {
+    "Private" = "True"
+  }
+}
+
+data "aws_subnet" "id" {
+  vpc_id = module.VPC.vpcid
+  tags = {
+    "Private" = "True"
+  }
+}
+
 module "VPC" {
   source = "./Modules/VPC"
   vpc_cidr = "10.0.0.0/16"
@@ -6,3 +20,15 @@ module "VPC" {
   azs = ["us-east-1a", "us-east-1b"]
 }
 
+module "Database" {
+  source = "./Modules/Database"
+  count = 1
+  db_name = "projectDB"
+  db_engine = "mysql"
+  db_instanceclass = "t2.micro"
+  dbuser = "projectuser"
+  dbpass = "projectpass"
+  dbsubnetid = tostring(data.aws_subnet.id.id)
+}
+
+#dbsubnetid
