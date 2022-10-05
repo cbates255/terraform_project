@@ -9,16 +9,17 @@ variable "region" {
 }
 
 variable "AZs" {
-  type = list(string)
+  type = list
   description = "The AZs housing the subnets"
+  default = [ "us-east-1a", "us-east-1b" ]
 }
 
 variable "pubsubCIDRblocks" {
-  type = list(string)
+  type = list
   description = "Cidr blocks for the public subnets"
 }
 
 variable "privsubCIDRblocks" {
-  type = list(string)
+  type = list
   description = "Cidr blocks for the private subnets"
 }

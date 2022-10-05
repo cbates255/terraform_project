@@ -12,16 +12,16 @@ resource "aws_vpc" "projectVPC" {
 resource "aws_subnet" "pubsub" {
   vpc_id = aws_vpc.projectVPC.id
   count = length(var.AZs)
-  availability_zone = var.AZs[count.index]
+  availability_zone = 
   map_public_ip_on_launch = true
-  cidr_block = var.pubsubCIDRblocks[count.index]
+  cidr_block = 
 }
 
 #Create 2 private subnets split across AZs
 resource "aws_subnet" "privsub" {
   vpc_id = aws_vpc.projectVPC.id
   count = length(var.AZs)
-  availability_zone = var.AZs[count.index]
+  availability_zone = 
   map_public_ip_on_launch = false
-  cidr_block = var.privsubCIDRblocks[count.index]
+  cidr_block = 
 }
