@@ -1,3 +1,4 @@
+
 resource "aws_db_instance" "DBinstance" {
   db_name              = var.db_name
   engine               = var.db_engine
@@ -10,5 +11,5 @@ resource "aws_db_instance" "DBinstance" {
 }
 
 resource "aws_db_subnet_group" "dbsubgroup" {
-  subnet_ids = var.dbsubnetid
+  subnet_ids = var.idd
 }

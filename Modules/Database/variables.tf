@@ -24,5 +24,5 @@ variable "zone1" {
   default = "us-east-1a"
 }
 
-variable "dbsubnetid" {
+variable "idd" {
 }

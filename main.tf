@@ -1,16 +1,4 @@
-data "aws_subnet_ids" "ids" {
-  vpc_id = module.VPC.vpcid
-  tags = {
-    "Private" = "True"
-  }
-}
 
-data "aws_subnet" "id" {
-  vpc_id = module.VPC.vpcid
-  tags = {
-    "Private" = "True"
-  }
-}
 
 module "VPC" {
   source = "./Modules/VPC"
@@ -28,7 +16,7 @@ module "Database" {
   db_instanceclass = "t2.micro"
   dbuser = "projectuser"
   dbpass = "projectpass"
-  dbsubnetid = tostring(data.aws_subnet.id.id)
+  idd = module.VPC.privsubid
 }
 
 #dbsubnetid
