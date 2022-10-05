@@ -3,15 +3,15 @@ variable "vpc_cidr" {
 }
 
 variable "pubsubCIDRblocks" {
-  type = list
+  type = list(string)
 }
 
 variable "privsubCIDRblocks" {
-  type = list
+  type = list(string)
 }
 
 variable "azs" {
-  type = list
+  type = list(string)
 }
 
 #copy paste for module
