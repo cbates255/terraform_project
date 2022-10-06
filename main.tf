@@ -25,11 +25,11 @@ module "Database" {
 
 
 module "LoadBalancer" {
-  source          = "./Modules/Load Balancer"
-  pubsuballid     = module.VPC.pubsuballid
-  vpc_id          = module.VPC.vpcid
-  listenport      = 80
-  listenprotocol  = "HTTP"
+  source         = "./Modules/Load Balancer"
+  pubsuballid    = module.VPC.pubsuballid
+  vpc_id         = module.VPC.vpcid
+  listenport     = 80
+  listenprotocol = "HTTP"
 }
 
 module "Ec2" {
