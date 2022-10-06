@@ -13,9 +13,3 @@ variable "privsubCIDRblocks" {
 variable "azs" {
   type = list(string)
 }
-
-#copy paste for module
-#vpc_cidr =
-#pubsubCIDRblocks = 
-#privsubCIDRblocks = 
-#azs = 

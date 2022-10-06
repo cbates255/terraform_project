@@ -19,4 +19,14 @@ module "Database" {
   privsubid = module.VPC.privsubid
 }
 
-#dbsubnetid
+
+module "LoadBalancer" {
+  source = "./Modules/Load Balancer"
+  pubsuballid = module.VPC.pubsuballid
+  vpc_id = module.VPC.vpcid
+}
+
+module "Ec2" {
+  source = "./Modules/Ec2"
+  pubsubnets = module.VPC.pubsubnets
+}
