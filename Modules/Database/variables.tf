@@ -31,3 +31,15 @@ variable "privsubid" {
 variable "securitygroup" {
   
 }
+
+variable "dbstorage" {
+  
+}
+
+variable "vpc_id" {
+  
+}
+
+variable "dbsecuritygroup" {
+  
+}

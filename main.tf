@@ -13,20 +13,23 @@ module "Database" {
   count            = 1
   db_name          = "projectDB"
   db_engine        = "mysql"
-  db_instanceclass = "t2.micro"
+  db_instanceclass = "db.t3.micro"
   dbuser           = "projectuser"
   dbpass           = "projectpass"
   privsubid        = module.VPC.privsubid
   securitygroup    = module.VPC.securitygroup
+  dbstorage        = 10
+  vpc_id           = module.VPC.vpcid
+  dbsecuritygroup  = module.VPC.dbsecuritygroup
 }
 
 
 module "LoadBalancer" {
-  source      = "./Modules/Load Balancer"
-  pubsuballid = module.VPC.pubsuballid
-  vpc_id      = module.VPC.vpcid
-  listenport = 80
-  listenprotocol = "HTTP"
+  source          = "./Modules/Load Balancer"
+  pubsuballid     = module.VPC.pubsuballid
+  vpc_id          = module.VPC.vpcid
+  listenport      = 80
+  listenprotocol  = "HTTP"
 }
 
 module "Ec2" {

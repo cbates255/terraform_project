@@ -3,7 +3,7 @@ output "vpcid" {
 }
 
 output "privsubid" {
-  value = aws_subnet.privsub[0].id
+  value = aws_subnet.privsub[*].id
 }
 
 output "pubsuballid" {
@@ -20,4 +20,8 @@ output "instance_azs" {
 
 output "securitygroup" {
   value = aws_security_group.projectVPCsg.id
+}
+
+output "dbsecuritygroup" {
+  value = aws_security_group.databasesecgroup.id
 }
