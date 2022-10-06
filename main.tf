@@ -29,4 +29,7 @@ module "LoadBalancer" {
 module "Ec2" {
   source = "./Modules/Ec2"
   pubsubnets = module.VPC.pubsubnets
+  instance_azs = module.VPC.instance_azs
+  securitygroup = module.VPC.securitygroup
+  pubsuballid = module.VPC.pubsuballid
 }

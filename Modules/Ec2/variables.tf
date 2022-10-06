@@ -5,3 +5,15 @@ variable "amazonlinux_ami" {
 variable "pubsubnets" {
   
 }
+
+variable "instance_azs" {
+  
+}
+
+variable "securitygroup" {
+  
+}
+
+variable "pubsuballid" {
+  
+}
