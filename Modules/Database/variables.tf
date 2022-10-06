@@ -27,3 +27,7 @@ variable "zone1" {
 variable "privsubid" {
   
 }
+
+variable "securitygroup" {
+  
+}

@@ -17,6 +17,7 @@ module "Database" {
   dbuser           = "projectuser"
   dbpass           = "projectpass"
   privsubid        = module.VPC.privsubid
+  securitygroup    = module.VPC.securitygroup
 }
 
 
@@ -24,11 +25,13 @@ module "LoadBalancer" {
   source      = "./Modules/Load Balancer"
   pubsuballid = module.VPC.pubsuballid
   vpc_id      = module.VPC.vpcid
+  listenport = 80
+  listenprotocol = "HTTP"
 }
 
 module "Ec2" {
   source        = "./Modules/Ec2"
   pubsubnets    = module.VPC.pubsubnets
-  securitygroup = module.VPC.securitygroup
+  securitygroup = [module.VPC.securitygroup]
   pubsuballid   = module.VPC.pubsuballid
 }

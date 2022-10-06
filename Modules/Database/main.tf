@@ -13,3 +13,11 @@ resource "aws_db_instance" "DBinstance" {
 resource "aws_db_subnet_group" "dbsubgroup" {
   subnet_ids = [var.privsubid]
 }
+
+resource "aws_db_security_group" "dbsecgroup" {
+  name = "dbsecgroup"
+
+  ingress {
+    security_group_id = var.securitygroup
+  }
+}

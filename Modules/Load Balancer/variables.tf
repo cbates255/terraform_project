@@ -5,3 +5,11 @@ variable "pubsuballid" {
   variable "vpc_id" {
     type = string
 }
+
+variable "listenport" {
+  
+}
+
+variable "listenprotocol" {
+  
+}
