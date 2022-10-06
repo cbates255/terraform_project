@@ -16,6 +16,7 @@ module "Database" {
   db_instanceclass = "t2.micro"
   dbuser = "projectuser"
   dbpass = "projectpass"
+  privsubid = module.VPC.privsubid
 }
 
 #dbsubnetid

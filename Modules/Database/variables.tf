@@ -23,3 +23,7 @@ variable "zone1" {
   type = string
   default = "us-east-1a"
 }
+
+variable "privsubid" {
+  
+}
