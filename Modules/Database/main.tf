@@ -11,5 +11,5 @@ resource "aws_db_instance" "DBinstance" {
 }
 
 resource "aws_db_subnet_group" "dbsubgroup" {
-  subnet_ids = [aws_subnet.privsub[count.index].id]
+  subnet_ids = [var.privsubid]
 }

@@ -3,5 +3,5 @@ output "vpcid" {
 }
 
 output "privsubid" {
-  value = aws_subnet.privsub.id
+  value = aws_subnet.privsub[0].id
 }
