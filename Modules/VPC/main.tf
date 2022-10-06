@@ -87,6 +87,7 @@ resource "aws_route_table" "publicroute" {
 
   route {
     gateway_id = aws_internet_gateway.projectgateway.id
+    cidr_block = "0.0.0.0/0"
   }
 }
 
@@ -95,6 +96,7 @@ resource "aws_route_table" "privateroute" {
 
   route {
     gateway_id = aws_internet_gateway.projectgateway.id
+    cidr_block = "0.0.0.0/0"
   }
 }
 

@@ -23,3 +23,15 @@ resource "aws_lb_listener" "projectlistener" {
     target_group_arn = aws_lb_target_group.projectTARGETgroup.arn
   }
 }
+
+resource "aws_lb_target_group_attachment" "projectattach1" {
+  target_group_arn = aws_lb_target_group.projectTARGETgroup.arn
+  target_id        = var.instanceid1
+  port             = 80
+}
+
+resource "aws_lb_target_group_attachment" "projectattach2" {
+  target_group_arn = aws_lb_target_group.projectTARGETgroup.arn
+  target_id        = var.instanceid2
+  port             = 80
+}

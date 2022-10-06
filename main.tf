@@ -30,6 +30,8 @@ module "LoadBalancer" {
   vpc_id         = module.VPC.vpcid
   listenport     = 80
   listenprotocol = "HTTP"
+  instanceid1    = module.Ec2.instanceid1
+  instanceid2    = module.Ec2.instanceid2
 }
 
 module "Ec2" {

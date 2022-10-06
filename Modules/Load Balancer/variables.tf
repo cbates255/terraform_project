@@ -13,3 +13,11 @@ variable "listenport" {
 variable "listenprotocol" {
   
 }
+
+variable "instanceid1" {
+
+}
+
+variable "instanceid2" {
+  
+}
