@@ -5,8 +5,8 @@ resource "aws_lb" "projectLB" {
   subnets            = var.pubsuballid
 }
 
-resource "aws_lb_target_group" "project_target_group" {
-  name     = "project_target_group"
+resource "aws_lb_target_group" "projectTARGETgroup" {
+  name     = "projectTARGETgroup"
   port     = 80
   protocol = "HTTP"
   vpc_id   = var.vpc_id

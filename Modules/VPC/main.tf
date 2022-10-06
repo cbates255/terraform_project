@@ -27,7 +27,7 @@ resource "aws_subnet" "privsub" {
 
 #Internet gateway
 resource "aws_internet_gateway" "projectgateway" {
-  vpc_id = aws_vpc.projectVPC
+  vpc_id = aws_vpc.projectVPC.id
 }
 
 #VPC security group
@@ -40,21 +40,21 @@ resource "aws_security_group" "projectVPCsg" {
     from_port        = 22
     to_port          = 22
     protocol         = "ssh"
-    cidr_blocks      = [aws_vpc.projectVPC.cidr_blocks]
+    cidr_blocks      = ["0.0.0.0/0"]
   }
   
   ingress {
     from_port        = 80
     to_port          = 80
     protocol         = "tcp"
-    cidr_blocks      = [aws_vpc.projectVPC.cidr_blocks]
+    cidr_blocks      = ["0.0.0.0/0"]
   }
 
   ingress {
     from_port        = 443
     to_port          = 443
     protocol         = "tcp"
-    cidr_blocks      = [aws_vpc.projectVPC.cidr_blocks]
+    cidr_blocks      = ["0.0.0.0/0"]
   }
 
 

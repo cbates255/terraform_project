@@ -7,7 +7,7 @@ output "privsubid" {
 }
 
 output "pubsuballid" {
-  value = aws_subnet.pubsub.id[count.index]
+  value = aws_subnet.pubsub[*].id
 }
 
 output "pubsubnets" {
@@ -19,5 +19,5 @@ output "instance_azs" {
 }
 
 output "securitygroup" {
-  value = aws_security_group.projectVPCsg.id
+  value = aws_security_group.projectVPCsg.name
 }
