@@ -72,10 +72,38 @@ resource "aws_security_group" "databasesecgroup" {
   description = "Inbound from app tier"
   vpc_id      = aws_vpc.projectVPC.id
 
-
   ingress {
     from_port        = 3306
     to_port          = 3306
     protocol         = "tcp"
+    security_groups  = [aws_security_group.projectVPCsg.id]
   }
+}
+
+resource "aws_route_table" "publicroute" {
+  vpc_id = aws_vpc.projectVPC.id
+
+  route {
+    gateway_id = aws_internet_gateway.projectgateway.id
+  }
+}
+
+resource "aws_route_table" "privateroute" {
+  vpc_id = aws_vpc.projectVPC.id
+
+  route {
+    gateway_id = aws_internet_gateway.projectgateway.id
+  }
+}
+
+resource "aws_route_table_association" "public" {
+  count           = length(aws_subnet.pubsub)
+  subnet_id       = aws_subnet.pubsub[count.index].id
+  route_table_id  = aws_route_table.publicroute.id
+}
+
+resource "aws_route_table_association" "private" {
+  count           = length(aws_subnet.privsub)
+  subnet_id       = aws_subnet.privsub[count.index].id
+  route_table_id  = aws_route_table.privateroute.id
 }
