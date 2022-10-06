@@ -19,5 +19,5 @@ output "instance_azs" {
 }
 
 output "securitygroup" {
-  value = aws_security_group.projectVPCsg.name
+  value = aws_security_group.projectVPCsg.id
 }

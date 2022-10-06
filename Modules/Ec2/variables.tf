@@ -6,14 +6,11 @@ variable "pubsubnets" {
   type = string
 }
 
-variable "instance_azs" {
-  type = string
-}
 
 variable "securitygroup" {
   type = set(string)
 }
 
 variable "pubsuballid" {
-  type = string
+  type = list
 }
