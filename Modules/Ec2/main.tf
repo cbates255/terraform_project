@@ -1,4 +1,4 @@
-
+#Create 2 ec2 instances across AZs
 resource "aws_instance" "projectec2" {
   count = var.pubsubnets
   ami           = var.amazonlinux_ami

@@ -1,4 +1,4 @@
-
+#Create a DB instance with subnet group
 resource "aws_db_instance" "DBinstance" {
   allocated_storage    = var.dbstorage
   db_name              = var.db_name

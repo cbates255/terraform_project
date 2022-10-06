@@ -67,6 +67,7 @@ resource "aws_security_group" "projectVPCsg" {
   }
 }
 
+#Private DB security group
 resource "aws_security_group" "databasesecgroup" {
   name        = "databasesecgroup"
   description = "Inbound from app tier"
@@ -80,6 +81,7 @@ resource "aws_security_group" "databasesecgroup" {
   }
 }
 
+#Create public and private subnet route tables
 resource "aws_route_table" "publicroute" {
   vpc_id = aws_vpc.projectVPC.id
 
@@ -96,6 +98,7 @@ resource "aws_route_table" "privateroute" {
   }
 }
 
+#Route table associations
 resource "aws_route_table_association" "public" {
   count           = length(aws_subnet.pubsub)
   subnet_id       = aws_subnet.pubsub[count.index].id
