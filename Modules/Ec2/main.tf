@@ -8,10 +8,9 @@ resource "aws_instance" "projectec2" {
   subnet_id = var.pubsuballid[count.index]
   user_data = <<EOF
   #!/bin/bash
-
-  yum upgrade -y
-  yum install httpd
-  yum systemctl enable httpd
-  yum systemctl start httpd
+    yum upgrade -y
+    yum install httpd
+    systemctl enable httpd
+    systemctl start httpd
   EOF
 }

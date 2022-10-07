@@ -25,3 +25,7 @@ output "securitygroup" {
 output "dbsecuritygroup" {
   value = aws_security_group.databasesecgroup.id
 }
+
+output "websecurityid" {
+  value = aws_security_group.projectVPCsg.id
+}

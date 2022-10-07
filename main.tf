@@ -32,6 +32,7 @@ module "LoadBalancer" {
   listenprotocol = "HTTP"
   instanceid1    = module.Ec2.instanceid1
   instanceid2    = module.Ec2.instanceid2
+  websecurityid  = module.VPC.websecurityid 
 }
 
 module "Ec2" {
