@@ -70,6 +70,7 @@ resource "aws_security_group" "databasesecgroup" {
     to_port          = 3306
     protocol         = "tcp"
     security_groups  = [aws_security_group.projectVPCsg.id]
+    cidr_blocks = ["0.0.0.0/0"]
   }
 }
 
