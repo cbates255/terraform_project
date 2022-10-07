@@ -50,14 +50,6 @@ resource "aws_security_group" "projectVPCsg" {
     cidr_blocks      = ["0.0.0.0/0"]
   }
 
-  ingress {
-    from_port        = 443
-    to_port          = 443
-    protocol         = "tcp"
-    cidr_blocks      = ["0.0.0.0/0"]
-  }
-
-
   egress {
     from_port        = 0
     to_port          = 0
@@ -112,3 +104,4 @@ resource "aws_route_table_association" "private" {
   subnet_id       = aws_subnet.privsub[count.index].id
   route_table_id  = aws_route_table.privateroute.id
 }
+

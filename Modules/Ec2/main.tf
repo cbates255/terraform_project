@@ -6,4 +6,12 @@ resource "aws_instance" "projectec2" {
   associate_public_ip_address = true
   vpc_security_group_ids = var.securitygroup
   subnet_id = var.pubsuballid[count.index]
+  user_data = <<EOF
+  #!/bin/bash
+
+  yum upgrade -y
+  yum install httpd
+  yum systemctl enable httpd
+  yum systemctl start httpd
+  EOF
 }
