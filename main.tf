@@ -15,7 +15,6 @@ module "Database" {
   db_engine        = "mysql"
   db_instanceclass = "db.t3.micro"
   dbuser           = "projectuser"
-  dbpass           = "projectpass"
   privsubid        = module.VPC.privsubid
   securitygroup    = module.VPC.securitygroup
   dbstorage        = 10
